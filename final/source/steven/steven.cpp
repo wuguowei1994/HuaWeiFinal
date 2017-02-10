@@ -66,6 +66,6 @@ int main(int argc, char *argv[])
     //释放读文件的缓冲区
     release_buff(topo, edge_num);
     release_buff(demand, demand_num);
-    printf("运行时间 =%5ldms\n\n", clock() / 1000);
+    printf("运行时间 =%5ldms\n", clock() / 1000);
     return 0;
 }

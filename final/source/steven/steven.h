@@ -40,14 +40,6 @@ using namespace std;
 #define False 				0
 #define True  				1
 
-#define PRINT_TOUR			0
-#define PRINT_VTOUR			0
-#define PRINT_CANDI			0
-
-#define PRINT_OPT_INFO		0
-#define PRINT_ReNode_INFO	0
-#define PRINT_TIME_INFO		0
-
 //c++11:字符串跟变量连接的时候,必须增加一个空格才行(用于printf_2var和printf_3var)
 #define Print(...) //						printf		//(...)//
 #define str(var,type) 				#var" = "#type
@@ -303,7 +295,6 @@ class Road
 private:
 	//all only used in search_single_route()
 	void setVcost_SPFA();
-	void setVcost_reduced_SPFA();
 	void setCost();
 	void setTour();
 	void setVtour();

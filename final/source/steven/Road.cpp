@@ -65,10 +65,9 @@ void Road::initial(char *demand, Graph *Gp, int id)
 *  2.删除s的入度;
 *  3.t的入度(不包括从s来的)作为s的入度
 *  4.用cost[i][j]记录必经点集中第i+1个点到第j+1个点的最短路径大小
-*  5.得到必经点之间的最短路径
 *  参数说明：
 *  1.isUseCopy:是否使用了double点的方法
-*  2.必经点集:包括起点和终点，同时将必经点中起点和终点以外的顶点按照索引从低到高的顺序排列)
+*  2.必经点集:包括起点和终点，同时将必经点中起点和终点以外的顶点按照索引从低到高的顺序排列
 *  函数返回：无
 *  修改时间：2017-02-06 20:18:52
 *  补充: 由于合并了起点和终点,同时将终点的入度作为起点的入度,所以有些点的出入度发生了变化，
@@ -202,17 +201,6 @@ void Road::setVtour()
         }
     }
     Vtour[VtourCn++] = this->t;
-    // cout << "Vtour is :";
-    // for (int i = 0; i < VtourCn; i++)
-    // {
-    //     if (isMust[Vtour[i]])
-    //     {
-    //         if (i == VtourCn - 1)
-    //             cout << Vtour[i] << endl;
-    //         else
-    //             cout << Vtour[i] << "----";
-    //     }
-    // }
 }
 
 
@@ -235,11 +223,6 @@ void Road::setVtourId()
         VtourId[i] = Gp->id[v1][v2];
         EDGENUM++;
     }
-    cout << "解为:";
-    // 按照边的索引打印
-    for (int i = 0; i < EDGENUM - 1; i++)
-        cout << VtourId[i] << "|";
-    cout << VtourId[EDGENUM - 1] << endl;
 }
 /*************************************************************************
 *  函数名称：Road::writeFile
@@ -256,9 +239,17 @@ void Road::writeFile(bool haveSolve)
         for (int i = 0; i < EDGENUM - 1; i++)
             result = result + int2string(VtourId[i]) + "|";
         result += int2string(VtourId[EDGENUM - 1]);
+        cout << "权重:" << roadCost[0] << endl << "最优解为:";
+        // 按照边的索引打印
+        for (int i = 0; i < EDGENUM - 1; i++)
+            cout << VtourId[i] << "|";
+        cout << VtourId[EDGENUM - 1] << endl;
     }
     else
+    {
         result = "NA";
+        cout<<"无解"<<endl;
+    }
     ofstream SaveFile(fileName);
     SaveFile << result;
     SaveFile.close();
@@ -295,7 +286,6 @@ void Road::setVtourCost()
             VtourCost[i] = Gp->subCost[v1][v2];
         roadCost[0] += VtourCost[i];
     }
-    cout << "权重:" << roadCost[0] << endl;
-    //set HashTable
+    // 将找到的路径存入HashTable中
     ht.insert(this);
 }

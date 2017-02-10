@@ -36,20 +36,6 @@ unsigned char Road::creatCandidates(long long &bestCostMin)
         bestCostMin = (bestCostMin - sumPi) >> 7u;
 
     }
-
-    //打印候选集
-#if PRINT_CANDI == 1
-    for (int n1 = 0, id; n1 < num; n1++)
-    {
-        Print("*******************node %3d(%3d) candidate : *******************\n", n1, list[n1]);
-        for (int j = 0; j < Node[n1].candCn; j++)
-        {
-            id = Node[n1].cand[j]->id;
-            Print("candidate %dth, id=%3d(%3d), alpha=%4d, cost=%3d\n", j, id, list[id], Node[n1].alpha[j], cost[n1][id]);
-        }
-        Print("\n");
-    }
-#endif
     return isFindTour;
 }
 
