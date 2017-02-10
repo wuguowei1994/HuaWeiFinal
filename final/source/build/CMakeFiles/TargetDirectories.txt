@@ -1,0 +1,3 @@
+/home/steven/git/HuaWeiFinal/final/source/build/CMakeFiles/edit_cache.dir
+/home/steven/git/HuaWeiFinal/final/source/build/CMakeFiles/rebuild_cache.dir
+/home/steven/git/HuaWeiFinal/final/source/build/CMakeFiles/steven.dir
