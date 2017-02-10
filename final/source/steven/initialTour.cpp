@@ -21,7 +21,7 @@ long long Road::initialTour(unsigned char hasFindTour, unsigned char &KMFindTour
 	long long initTourCost = 0;
 	VVNode *predN=NULL, *firstNode, *N=NULL;
 	int succNCn, i, j, r;
-	
+	// 如果在指定循环次数内没有找到最优解，就用KM算法强行指定一个可行解方便LKH使用
 	if(trial==Trials-1 && hasFindTour==false)
 	{
 		Print("used KM\n");
@@ -31,7 +31,7 @@ long long Road::initialTour(unsigned char hasFindTour, unsigned char &KMFindTour
 	
 	//initial first node
 	memset(isUsed,False,sizeof(unsigned char)*num);
-	r = 0;//rand()%num;
+	r = 0;
 	isUsed[r] = True;
 	firstNode = predN = &Node[r];
 	
@@ -101,7 +101,5 @@ long long Road::initialTour(unsigned char hasFindTour, unsigned char &KMFindTour
 initialTourEnd:
 	resetOrder();
 	
-	//if(UsedTourTable && ((initTourCost-sumPi)>>7u) < UnReachCost)	
-	//	tt.insert(this,(initTourCost-sumPi)>>7u);
 	return initTourCost;
 }
