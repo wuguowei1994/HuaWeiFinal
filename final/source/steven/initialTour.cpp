@@ -29,6 +29,7 @@ long long Road::initialTour(unsigned char hasFindTour, unsigned char &KMFindTour
 		goto initialTourEnd;
 	}
 	
+	
 	//initial first node
 	memset(isUsed,False,sizeof(unsigned char)*num);
 	r = 0;
@@ -102,4 +103,5 @@ initialTourEnd:
 	resetOrder();
 	
 	return initTourCost;
+
 }

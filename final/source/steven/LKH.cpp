@@ -45,7 +45,9 @@ long long Road::LKH()
 long long Road::findTour(unsigned char hasFindTour)
 {
 	unsigned char KMFindTour = false;
+	// 将KMFindTour作为函数的实参，如果在initialTour中使用了KM算法，那么会将KMFindTour置为true
 	long long bestCost = initialTour(hasFindTour,KMFindTour);
+	// 如果在initialTour()中使用了KM算法，那么不会进入这个if语句
 	if(!KMFindTour)
 	{
 		while(1)
