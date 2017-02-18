@@ -20,9 +20,8 @@
 #include "lib_time.h"
 #include "route.h"
 using namespace std;
-
-
 /********************************** macro ********************************/
+#define PRINT_OPT_INFO 0
 #define MaxV 				2000						//所有node的数量上限
 #define MaxV2 				MaxV*2						//所有node double以后的数量上限
 #define MaxEOut 			20							//node的出度上限
@@ -108,7 +107,6 @@ template <class T> inline bool checkMax(T& a, T b)
 	if (b > a) { a = b; return true; }
 	return false;
 }
-
 
 /********************************** class definition ********************************/
 class Edge 			// 候选(边)集中的结点

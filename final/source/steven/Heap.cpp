@@ -38,7 +38,6 @@ void Heap::push(int id) {
 
 void Heap::change(int id) {
 	shift_up(id);
-	//shift_down(id);
 }
 
 int Heap::pop() {
@@ -86,3 +85,4 @@ void Heap::shift_down(int id) {	// 向下调
 	h[loc] = id;
 	pos[id] = loc;
 }
+

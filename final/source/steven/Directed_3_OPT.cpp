@@ -23,6 +23,8 @@ unsigned char Road::_3_OPT(long long &bestCost)
 {
 	int i,j;
 	unsigned char isImproved = False;
+	// Gain1代表去掉一条边，然后加入一条新边后的增益
+	// Gain3代表去掉三条边，然后加入三条新边后的增益
 	long long bestGain,Gain1,Gain3;
 	VVNode *t1=NULL,*t2=NULL,*t3=NULL,*t4=NULL,*t5=NULL,*t6=NULL;
 	VVNode *T1=NULL,*T2=NULL,*T3=NULL,*T4=NULL,*T5=NULL,*T6=NULL;
@@ -31,14 +33,14 @@ unsigned char Road::_3_OPT(long long &bestCost)
 		long long timeStart = clock();
 	#endif
 	#if PRINT_OPT_INFO == 1
-		Print("start run %s() *********************************************\n",__FUNCTION__);
+		printf("start run %s() *********************************************\n",__FUNCTION__);
 	#endif
-	
 	resetActive();
 	while(NULL != (t1=RemoveFirstActive()))
 	{
 		t2 = t1->succ;
 		bestGain = 0;
+		printf("t1的候选边共有:%d个\n",t1->candCn);
 		for(i = 0;i < t1->candCn;i++)
 		{
 			t3 = t1->cand[i];

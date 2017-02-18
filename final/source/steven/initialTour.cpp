@@ -101,7 +101,5 @@ long long Road::initialTour(unsigned char hasFindTour, unsigned char &KMFindTour
 
 initialTourEnd:
 	resetOrder();
-	
 	return initTourCost;
-
 }

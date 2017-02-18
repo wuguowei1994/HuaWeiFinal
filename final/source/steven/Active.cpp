@@ -14,6 +14,7 @@
 void Road::resetActive()
 {
     firstActive = lastActive = NULL;
+    //不操作复制点，所以是以num为条件
 	for (int i = 0; i < num; i++)
 	{
 		Node[i].next = NULL;
@@ -28,6 +29,7 @@ void Road::resetActive()
 *  参数说明：N为节点指针
 *  函数返回：无
 *  修改时间：2017-02-06 21:00:03
+*  在LKH中的位置:Activate.c中函数Activate
 *************************************************************************/
 void Road::Active(VVNode *N)
 {
@@ -47,6 +49,7 @@ void Road::Active(VVNode *N)
 *  参数说明：无
 *  函数返回：N为出队列的节点指针
 *  修改时间：2017-02-06 21:00:22
+*  在LKH中的位置:RemoveFirstActive.c的RemoveFirstActive()函数
 *************************************************************************/
 VVNode * Road::RemoveFirstActive()
 {

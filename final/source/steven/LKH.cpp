@@ -13,6 +13,7 @@
 *************************************************************************/
 long long Road::LKH()
 {
+	// long是32位宽，占4个字节，long long通常被定义成64位宽
 	long long bestCostMin = UnReachCost,bestCost;
 	//寻路总共使用LKH的次数
 	sLKHuseCn++;					
